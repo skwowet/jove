@@ -19,7 +19,10 @@ public class Course
 	@GeneratedValue
 	private int id;
 	
-	@Column(unique = true)
+	// @Column(unique = true)
+	// private String name;
+
+	@Column
 	private String name;
 	
 	@OneToMany(mappedBy = "course")
