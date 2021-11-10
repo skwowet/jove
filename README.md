@@ -2,50 +2,50 @@
 
 Designed and implemented a project management system as end-of-semster project to be submitted for the university.
 
-## Docs
+## Connect to postgres db
 
-Checkout the docs related to project management system.
+- [Install pgAdmin4](https://www.pgadmin.org/download/)
+- Config [application.properties](src/main/resources/application.properties) file with pgadmin4 credentials
+- Run the pgadmin4 server
 
-- [Overview](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EcsiKfafh9lNgnEQgXbL4M4B_lyInZwD3CmaoqjFjxuPCw?e=3T01RQ)
+## Lazy to connect with pgAdmin?
+If you are lazy like me to start postgres server & pgadmin manually each time, then you can connect to the postgres db using the docker, which makes the development ease.
 
-- [db](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EWA3o_8g4YFMkqhrUbvCB4oBp7o-gWE4C7R8pewulMEqTw?e=pBrQXt)
+- [Install Docker engine](https://docs.docker.com/engine/install/)
 
-## Installation
+- Run the docker engine 
+
+- Make sure your inside the [docker directory](docker/), and build the postgres docker image, by running the following command
+```bash
+$ docker compose build
+```
+
+- Start docker postgres service
+```bash
+$ docker compose up -d
+```
+
+## Getting Started
 1. Clone the repository
 ```git
 $ git clone https://github.com/yeganathan18/jove.git 
 ```
 
-2. Open terminal inside the project directory or cd into it,
-```bash
-$ cd jove
-```
+2. Open terminal inside the project directory
 
-3. Install dependencies and start the server,
+3. Make sure your connect to db either with the docker setup as mentioned above or with pgadmin and proceed further.
+
+3. Install dependencies and start the server, by running the following command
 ```bash
 $ ./mvnw spring-boot:run
 ``` 
-
-<!-- Download docker and and cd into docker directory, build the image, and run the container. -->
 
 ## Navigation
 Open [localhost:8080](localhost:8080) in your browser, you will be able to access the application.
 
 
-<!-- ## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-``` -->
+## Docs
+Looking for docs? Check out the these - [Overview](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EcsiKfafh9lNgnEQgXbL4M4B_lyInZwD3CmaoqjFjxuPCw?e=3T01RQ) & [db](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EWA3o_8g4YFMkqhrUbvCB4oBp7o-gWE4C7R8pewulMEqTw?e=pBrQXt)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
