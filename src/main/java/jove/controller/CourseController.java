@@ -1,4 +1,4 @@
-package studentdbms.controller;
+package jove.controller;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import studentdbms.entity.Course;
-import studentdbms.entity.Review;
-import studentdbms.service.CourseService;
+import jove.entity.Course;
+import jove.entity.Review;
+import jove.service.CourseService;
 
 @Controller
 @RequestMapping("/courses")

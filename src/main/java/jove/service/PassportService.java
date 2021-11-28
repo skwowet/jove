@@ -1,11 +1,11 @@
-package studentdbms.service;
+package jove.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import studentdbms.entity.Passport;
-import studentdbms.repository.PassportRepository;
+import jove.entity.Passport;
+import jove.repository.PassportRepository;
 
 @Service
 public class PassportService 

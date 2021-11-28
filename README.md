@@ -41,8 +41,16 @@ $ docker compose up -d
 ## Navigation
 Open [localhost:8080](localhost:8080) in your browser, you will be able to access the application.
 
-## Docs
-Looking for docs? Check out the these - [Overview](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EcsiKfafh9lNgnEQgXbL4M4B_lyInZwD3CmaoqjFjxuPCw?e=3T01RQ) & [db](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EWA3o_8g4YFMkqhrUbvCB4oBp7o-gWE4C7R8pewulMEqTw?e=pBrQXt)
+
+## Reference Documentation
+For further reference, please consider the following sections:
+
+* [Overview of the Project](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EcsiKfafh9lNgnEQgXbL4M4B_lyInZwD3CmaoqjFjxuPCw?e=3T01RQ)
+* [Database Architecture](https://amritauniv-my.sharepoint.com/:w:/g/personal/amenu4cse20376_am_students_amrita_edu/EWA3o_8g4YFMkqhrUbvCB4oBp7o-gWE4C7R8pewulMEqTw?e=pBrQXt)
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.0/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.0/maven-plugin/reference/html/#build-image)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

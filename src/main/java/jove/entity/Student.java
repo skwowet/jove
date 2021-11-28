@@ -1,4 +1,4 @@
-package studentdbms.entity;
+package jove.entity;
 
 import java.util.ArrayList;
 import java.util.List;

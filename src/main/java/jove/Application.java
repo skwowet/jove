@@ -1,18 +1,14 @@
-package studentdbms;
+package jove;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
-
-import studentdbms.entity.Course;
-import studentdbms.entity.Student;
-import studentdbms.service.CourseService;
-import studentdbms.service.StudentService;
+import jove.entity.Course;
+import jove.service.CourseService;
+import jove.service.StudentService;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner

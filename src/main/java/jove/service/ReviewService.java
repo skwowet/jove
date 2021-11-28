@@ -1,11 +1,11 @@
-package studentdbms.service;
+package jove.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import studentdbms.entity.Review;
-import studentdbms.repository.ReviewRepository;
+import jove.entity.Review;
+import jove.repository.ReviewRepository;
 
 @Service
 public class ReviewService 
