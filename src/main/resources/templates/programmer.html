@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="text-light" style="background-color: #343a40!important">
+    <main class="container p-4">
+
+        <div>
+            <h1>Programmer</h1>
+            <p>Name: Archana</p>
+        </div>
+
+        <hr class="bg-secondary" style="height: 5px;">
+
+        <a href="#" class="btn btn-primary order-btn">View Projects</a>
+        <a href="#" class="btn btn-primary profile-btn">Edit Profile</a>
+        <a href="afterlogout.html" class="btn btn-warning logout-btn">Log out</a>
+
+        <!-- Edit my profile -->
+        <div class="profile-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
+            <form action="#" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="inputProgrammerID">Programmer ID</label>
+                    <input type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputProgrammerName">Programmer Name</label>
+                    <input type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputProgrammerUsername">Username</label>
+                    <input type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputAddress">Experiance</label>
+                    <input type="number" class="form-control" id="inputAddress" value="8" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputPhone">Known Languages</label>
+                    <input type="text" class="form-control" id="inputPhone" value="JavaScript, C++" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputPhone">Specialisation</label>
+                    <input type="text" class="form-control" id="inputPhone" value="Web development" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="inputPhone">Date of Joining</label>
+                    <input type="date" class="form-control" id="inputPhone" required>
+                </div>
+                <!-- close form -->
+                <button class="btn btn-danger profile-close">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+
+        <!-- Create a table with Project ID, Software Name, Software Type, Project Leader ID, Date of Order, Due Date -->
+        <div class="my-4 view-projects">
+            <table class="table table-striped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Project ID</th>
+                        <th scope="col">Software Name</th>
+                        <th scope="col">Software Type</th>
+                        <th scope="col">Project Leader ID</th>
+                        <th scope="col">Date of Order</th>
+                        <th scope="col">Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Project 1</td>
+                        <td>Web Development</td>
+                        <td>1</td>
+                        <td>12/12/2019</td>
+                        <td>12/12/2019</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Project 2</td>
+                        <td>Web Development</td>
+                        <td>2</td>
+                        <td>12/12/2019</td>
+                        <td>12/12/2019</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Project 3</td>
+                        <td>Web Development</td>
+                        <td>3</td>
+                        <td>12/12/2019</td>
+                        <td>12/12/2019</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Project 4</td>
+                        <td>Web Development</td>
+                        <td>4</td>
+                        <td>12/12/2019</td>
+                        <td>12/12/2019</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Project 5</td>
+                        <td>Web Development</td>
+                        <td>5</td>
+                        <td>12/12/2019</td>
+                        <td>12/12/2019
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    <script>
+        // Hide form when cancel button is clicked in the client.html
+        document.querySelector('.profile-close').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.profile-form').style.display = 'none';
+            // show view projects
+            document.querySelector('.view-projects').style.display = 'block';
+        });
+
+        // Show form when My Profile button is clicked in the client.html
+        document.querySelector('.profile-btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.view-projects').style.display = 'none';
+            document.querySelector('.profile-form').style.display = 'block';
+        });
+
+        // show projects when view projects button is clicked in the client.html
+        document.querySelector('.order-btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.view-projects').style.display = 'block';
+            document.querySelector('.profile-form').style.display = 'none';
+        });
+
+    </script>
+</body>
+
+</html>

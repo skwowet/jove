@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project View</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container my-4">
+        <!-- Create project details -->
+        <div>
+            <h2>Project 1</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+        </div>
+
+        <div class="order-form my-4 p-4 border border-2 border-primary" style="width: 650px;">
+            <form action="#" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="inputEmail">Project ID</label>
+                    <input type="number" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"
+                        disabled >
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="inputPassword">Software Name</label>
+                    <input type="text" class="form-control" id="inputSoftwareName" placeholder="Software Name" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="inputPassword">Software Type</label>
+                    <input type="text" class="form-control" id="inputSoftwareType" placeholder="Software Type" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="inputProjectLeaderID">Project Leader ID</label>
+                    <input type="text" class="form-control" id="inputProjectLeaderID" placeholder="Project Leader ID" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="inputEmail">Date of Order</label>
+                    <input type="date" class="form-control" id="inputDateOfOrder" placeholder="Date Of Order" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="inputPassword">Due Date</label>
+                    <input type="date" class="form-control" id="inputDueDate" placeholder="Due Date" disabled>
+                </div>
+
+                <!-- Create a back button -->
+                <div class="form-group">
+                    <button type="button" class="btn btn-danger" onclick="window.history.back();">Back</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
