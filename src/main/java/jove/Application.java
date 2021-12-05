@@ -28,7 +28,7 @@ public class Application implements CommandLineRunner
 	{
 		// Student student = new Student("werewfwer");
 		// studentService.save(student);
-		Course course = new Course("sdfdsfsd");
+		Course course = new Course("Chumma oru course");
 		courseService.save(course);
 		// student.addCourse(course);
 		// studentService.save(student);
