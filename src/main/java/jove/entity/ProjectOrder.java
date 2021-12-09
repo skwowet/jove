@@ -1,13 +1,11 @@
 package jove.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Project {
+public class ProjectOrder {
 
     @Id
     @GeneratedValue
@@ -26,14 +24,17 @@ public class Project {
     private String due_date;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client.client_id")
+    @JoinColumn(name = "client_id")
     private Client client;
 
+    @OneToMany(mappedBy = "projectOrder")
+    private List<Software> listSoftwares;
 
-    public Project() {
+
+    public ProjectOrder() {
     }
 
-    public Project(String software_name, String software_type, String date_of_order, String due_date, Client client) {
+    public ProjectOrder(String software_name, String software_type, String date_of_order, String due_date, Client client) {
         this.software_name = software_name;
         this.software_type = software_type;
         this.date_of_order = date_of_order;
