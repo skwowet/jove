@@ -24,7 +24,7 @@ public class Client {
     private String password;
 
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, orphanRemoval = false)
-    private List<Project> listProjects = new ArrayList<>();
+    private final List<ProjectOrder> listProjects = new ArrayList<>();
 
     public Client() {
     }

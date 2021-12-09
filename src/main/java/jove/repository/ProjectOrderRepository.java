@@ -1,12 +1,10 @@
 package jove.repository;
 
+import jove.entity.ProjectOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import jove.entity.Passport;
-
 @Repository
-public interface PassportRepository extends JpaRepository<Passport, Integer>
-{
+public interface ProjectRepository extends JpaRepository<ProjectOrder, Integer> {
 
 }

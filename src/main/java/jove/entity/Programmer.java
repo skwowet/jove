@@ -1,6 +1,7 @@
 package jove.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Programmer {
@@ -13,7 +14,7 @@ public class Programmer {
     private String programmer_name;
 
     @Column
-    private Long experience;
+    private Integer experience;
 
     @Column
     private String known_language;
@@ -24,16 +25,21 @@ public class Programmer {
     @Column
     private String date_of_joining;
 
+    @ManyToOne
+    @JoinColumn(name = "software_id")
+    private Software software;
+
 
     public Programmer() {
     }
 
-    public Programmer(String programmer_name, Long experience, String known_language, String specializations, String date_of_joining) {
+    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, String date_of_joining, Software software) {
         this.programmer_name = programmer_name;
         this.experience = experience;
         this.known_language = known_language;
         this.specializations = specializations;
         this.date_of_joining = date_of_joining;
+        this.software = software;
     }
 
     public Long getProgrammer_Id() {
@@ -52,11 +58,11 @@ public class Programmer {
         this.programmer_name = programmer_name;
     }
 
-    public Long getExperience() {
+    public Integer getExperience() {
         return experience;
     }
 
-    public void setExperience(Long experience) {
+    public void setExperience(Integer experience) {
         this.experience = experience;
     }
 
@@ -84,6 +90,14 @@ public class Programmer {
         this.date_of_joining = date_of_joining;
     }
 
+    public Software getSoftware() {
+        return software;
+    }
+
+    public void setSoftware(Software software) {
+        this.software = software;
+    }
+
     @Override
     public String toString() {
         return "Programmer{" +
@@ -93,6 +107,7 @@ public class Programmer {
                 ", known_language='" + known_language + '\'' +
                 ", specializations='" + specializations + '\'' +
                 ", date_of_joining='" + date_of_joining + '\'' +
+                ", software=" + software +
                 '}';
     }
 }
