@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
                 <form action="">
                     <!-- Select user type -->
                     <div class="mb-3">
-                        <label class="form-label" for="inputUserType">User Type</label>
+                        <label class="form-label" >User Type</label>
                         <select class="form-select" id="SelectUserType" required>
                             <option value="">Select User Type</option>
                             <option value="1">Client</option>
@@ -58,7 +58,7 @@
     </div>
     <script>
         document.getElementById("SelectUserType").addEventListener("change", function () {
-            if (this.value == "1") {
+            if (this.value === "1") {
                 document.querySelector(".client-reg").style.display = "block";
             } else {
                 document.querySelector(".client-reg").style.display = "none";
@@ -68,22 +68,22 @@
         document.querySelector(".sign-in-btn").addEventListener("click", function (e) {
             e.preventDefault();
             if (
-                document.getElementById("SelectUserType").value == 1
+                document.getElementById("SelectUserType").value === 1
             ) {
                 window.location.href = "client.html";
             }
             if (
-                document.getElementById("SelectUserType").value == 2
+                document.getElementById("SelectUserType").value === 2
             ) {
                 window.location.href = "project-leader.html";
             }
             if (
-                (document.getElementById("SelectUserType").value) == 3
+                (document.getElementById("SelectUserType").value) === 3
             ) {
                 window.location.href = "programmer.html";
             }
             if (
-                (document.getElementById("SelectUserType").value) == 4
+                (document.getElementById("SelectUserType").value) === 4
             ) {
                 window.location.href = "owner.html";
             }
