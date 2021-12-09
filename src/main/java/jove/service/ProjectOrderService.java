@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ProjectService {
+public class ProjectOrderService {
 
     @Autowired
     private ProjectOrderRepository projectOrderRepository;
 
     @Transactional
-    public List<ProjectOrder> getAllProject() {
+    public List<ProjectOrder> getAllProjectOrder() {
         return projectOrderRepository.findAll();
     }
 
     @Transactional
-    public ProjectOrder getProjectById(int id) {
+    public ProjectOrder getProjectOrderById(int id) {
         return projectOrderRepository.findById(id).isPresent() ? projectOrderRepository.findById(id).get() : null;
     }
 
@@ -29,12 +29,12 @@ public class ProjectService {
     }
 
     @Transactional
-    public void updateProject(ProjectOrder project) {
+    public void updateProjectOrder(ProjectOrder project) {
         projectOrderRepository.save(project);
     }
 
     @Transactional
-    public void deleteProject(int id) {
+    public void deleteProjectOrder(int id) {
         projectOrderRepository.deleteById(id);
     }
 }

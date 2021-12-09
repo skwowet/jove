@@ -1,41 +1,41 @@
 package jove.service;
 import java.util.List;
 
-import jove.entity.ProjectOrder;
-import jove.repository.ProjectOrderRepository;
+import jove.entity.ProjectLead;
+import jove.repository.ProjectLeadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ProjectLead {
+public class ProjectLeadService {
 
     @Autowired
-    private ProjectOrderRepository projectOrderRepository;
+    private ProjectLeadRepository projectLeadRepository;
 
     @Transactional
-    public List<ProjectOrder> getAllProject() {
-        return projectOrderRepository.findAll();
+    public List<ProjectLead> getAllProjectLead() {
+        return projectLeadRepository.findAll();
     }
 
     @Transactional
-    public ProjectOrder getProjectById(int id) {
-        return projectOrderRepository.findById(id).isPresent() ? projectOrderRepository.findById(id).get() : null;
+    public ProjectLead getProjectLeadById(int id) {
+        return projectLeadRepository.findById(id).isPresent() ? projectLeadRepository.findById(id).get() : null;
     }
 
     @Transactional
-    public void addProject(ProjectOrder project) {
-        projectOrderRepository.save(project);
+    public void addProjectLead(ProjectLead projectLead) {
+        projectLeadRepository.save(projectLead);
     }
 
     @Transactional
-    public void updateProject(ProjectOrder project) {
-        projectOrderRepository.save(project);
+    public void updateProjectLead(ProjectLead projectLead) {
+        projectLeadRepository.save(projectLead);
     }
 
     @Transactional
-    public void deleteProject(int id) {
-        projectOrderRepository.deleteById(id);
+    public void deleteProjectLead(int id) {
+        projectLeadRepository.deleteById(id);
     }
 }
 
