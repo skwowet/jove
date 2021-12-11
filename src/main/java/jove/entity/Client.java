@@ -9,7 +9,7 @@ public class Client {
 
     @Id
     @GeneratedValue
-    private Long client_id;
+    private Integer client_id;
 
     @Column
     private String client_name;
@@ -23,20 +23,25 @@ public class Client {
     @Column
     private String password;
 
+    @Column
+    private String address;
+
+
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, orphanRemoval = false)
     private final List<ProjectOrder> listProjects = new ArrayList<>();
 
     public Client() {
     }
 
-    public Client(String client_name, String phone_number, String username, String password) {
+    public Client(String client_name, String phone_number, String username, String password, String address) {
         this.client_name = client_name;
         this.phone_number = phone_number;
         this.username = username;
         this.password = password;
+        this.address = address;
     }
 
-    public Long getClient_id() {
+    public Integer getClient_id() {
         return client_id;
     }
 
@@ -72,8 +77,24 @@ public class Client {
         this.password = password;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
     @Override
     public String toString() {
-        return "Client[" + "client_name=" + client_name + ", phone_number=" + phone_number + ", username=" + username + ", password=" + password + ']';
+        return "Client[" +
+                "client_id=" + client_id +
+                ", client_name='" + client_name + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ']';
     }
 }

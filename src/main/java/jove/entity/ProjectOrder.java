@@ -9,7 +9,7 @@ public class ProjectOrder {
 
     @Id
     @GeneratedValue
-    private Long software_id;
+    private Integer software_id;
 
     @Column(length=100)
     private String software_name;
@@ -42,11 +42,11 @@ public class ProjectOrder {
         this.client = client;
     }
 
-    public Long getSoftware_id() {
+    public Integer getSoftware_id() {
         return software_id;
     }
 
-    public void setSoftware_id(Long software_id) {
+    public void setSoftware_id(Integer software_id) {
         this.software_id = software_id;
     }
 
