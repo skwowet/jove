@@ -1,33 +1,49 @@
 package jove.controller;
 
-import jove.repository.ClientRepository;
+import jove.entity.Client;
 import jove.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.List;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController
-{
+public class LoginController {
+
     @Autowired
     private ClientService clientService;
 
     @GetMapping("")
-    public String findall(Model model)
+    public String showLogin(Model model)
     {
-        model.addAttribute("clients", clientService.getAllClient());
+        List<Client> clients = clientService.getAllClient();
+        model.addAttribute("clients", clients);
         return "index";
     }
 
-    @GetMapping("/{id}")
-    public String findById(@PathVariable("id") Long id, Model model)
+//    @GetMapping("")
+//    public String list(Model model){
+//        List<Client> clients = clientService.getAllClient();
+//        model.addAttribute("clients", clients);
+//        return "index";
+//    }
+
+    @GetMapping("/add")
+    public String add(Model model)
     {
-        model.addAttribute("client", clientService.getClientById(Math.toIntExact(id)));
-        return "owner";
+        Client theClient = new Client();
+        model.addAttribute("theClient", theClient);
+        return "client-signup";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute("theClient") Client theClient)
+    {
+        clientService.addClient(theClient);
+        return "redirect:/login";
     }
 }
 
