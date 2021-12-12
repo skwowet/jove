@@ -2,6 +2,7 @@ package jove.service;
 import java.util.List;
 
 import jove.entity.ProjectOrder;
+import jove.entity.Review;
 import jove.repository.ProjectOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class ProjectOrderService {
     }
 
     @Transactional
-    public void addProject(ProjectOrder project) {
+    public void addProjectOrder(ProjectOrder project) {
         projectOrderRepository.save(project);
     }
 
@@ -34,8 +35,9 @@ public class ProjectOrderService {
     }
 
     @Transactional
-    public void deleteProjectOrder(int id) {
-        projectOrderRepository.deleteById(id);
+    public void deleteProjectOrder(ProjectOrder projectOrder) {
+        projectOrderRepository.delete(projectOrder);
     }
+
 }
 
