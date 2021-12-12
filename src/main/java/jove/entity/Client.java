@@ -1,5 +1,7 @@
 package jove.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ public class Client {
 
     @Id
     @GeneratedValue
-    private Integer client_id;
+    private int client_id;
 
     @Column
     private String client_name;
@@ -28,7 +30,8 @@ public class Client {
 
 
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, orphanRemoval = false)
-    private final List<ProjectOrder> listProjects = new ArrayList<>();
+    @JsonIgnore
+    private List<ProjectOrder> listProjects = new ArrayList<>();
 
     public Client() {
     }
@@ -41,7 +44,7 @@ public class Client {
         this.address = address;
     }
 
-    public Integer getClient_id() {
+    public int getClient_id() {
         return client_id;
     }
 
@@ -85,6 +88,23 @@ public class Client {
         this.address = address;
     }
 
+    public List<ProjectOrder> getListProjects() {
+        return listProjects;
+    }
+
+    public void addProjectOrder(ProjectOrder projectOrder) {
+        listProjects.add(projectOrder);
+    }
+
+    public void removeProjectOrder(ProjectOrder projectOrder) {
+        listProjects.remove(projectOrder);
+    }
+
+    public void removeProjectOrder(int index) {
+        listProjects.remove(index);
+    }
+
+
 
     @Override
     public String toString() {
@@ -95,6 +115,7 @@ public class Client {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
+                ", listProjects=" + listProjects +
                 ']';
     }
 }
