@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,9 @@
 
         <div>
             <h1>Client</h1>
-            <p>Name: Ramesh Kumar</p>
+            <div style="display: inline">
+                <p>Client Name:  <span th:text="${theClient.client_name}" /> </p>
+            </div>
         </div>
 
         <hr class="bg-secondary" style="height: 5px;">
@@ -24,32 +26,32 @@
         <a href="logout.html" class="btn btn-warning logout-btn">Log out</a>
 
         <!-- Order form -->
-        <div class="order-form my-4 p-4"style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
-            <form action="#" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="inputEmail">Project ID</label>
-                    <input type="number" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"
-                        disabled required>
-                </div>
+        <div class="order-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
+            <form action="#" th:action="@{'/client/save?id='+${id}}"  th:object="${theProjectOrder}" method="post">
+<!--                <div class="mb-3">-->
+<!--                    <label class="form-label" for="inputEmail">Project ID</label>-->
+<!--                    <input type="number" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"-->
+<!--                        disabled required>-->
+<!--                </div>-->
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Software Name</label>
-                    <input type="text" class="form-control" id="inputSoftwareName" placeholder="Software Name" required>
+                    <input type="text" th:field="*{software_name}" class="form-control" id="inputSoftwareName" placeholder="Software Name" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Software Type</label>
-                    <input type="text" class="form-control" id="inputSoftwareType" placeholder="Software Type" required>
+                    <input type="text" th:field="*{software_type}" class="form-control" id="inputSoftwareType" placeholder="Software Type" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="inputEmail">Date of Order</label>
-                    <input type="date" class="form-control" id="inputDateOfOrder" placeholder="Date Of Order" required>
+                    <input type="date" th:field="*{date_of_order}" class="form-control" id="inputDateOfOrder" placeholder="Date Of Order" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Due Date</label>
-                    <input type="date" class="form-control" id="inputDueDate" placeholder="Due Date" required>
+                    <input type="date" th:field="*{due_date}" class="form-control" id="inputDueDate" placeholder="Due Date" required>
                 </div>
 
                 <button class="btn btn-danger order-close">Close</button>
@@ -58,28 +60,29 @@
         </div>
 
         <!-- Create my profile -->
+<!--        th:href="@{'/client/remove?id='+${temp.software_id}+'&cid='+${theClient.client_id}}"-->
         <div class="profile-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
-            <form action="#" method="post">
+            <form action="#" th:action="@{'/client/update?id='+${id}}" th:object="${theClient}" method="post">
                 <div class="mb-3">
                     <label class="form-label" for="inputClientID">Client ID</label>
-                    <input type="text" class="form-control" id="inputClientID" value="23" disabled required>
+                    <input type="text" th:field="*{client_id}" class="form-control" id="inputClientID" value="23" disabled required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputClientName">Client Name</label>
-                    <input type="text" class="form-control" id="inputClientName" value="Rajesh Kumar" required>
+                    <input type="text" th:field="*{client_name}" class="form-control" id="inputClientName" value="Rajesh Kumar" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputClientUsername">Username</label>
-                    <input type="text" class="form-control" id="inputClientUsername" value="rajesh123" required>
+                    <input type="text" th:field="*{username}" class="form-control" id="inputClientUsername" value="rajesh123" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress"
+                    <input type="text" th:field="*{address}" class="form-control" id="inputAddress"
                         value="22/12, New Street, New City, New State, New Country" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Phone</label>
-                    <input type="text" class="form-control" id="inputPhone" value="9834234521" required>
+                    <input type="text"  th:field="*{phone_number}"  class="form-control" id="inputPhone" value="9834234521" required>
                 </div>
                 <!-- close form -->
                 <button class="btn btn-danger profile-close">Close</button>
@@ -102,52 +105,52 @@
                         <th scope="col">Cancel</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody  th:each="temp : ${projectOrders}">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Software 1</td>
-                        <td>Software Type 1</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
+                        <td th:text="${temp.software_id}" />
+                        <td th:text="${temp.software_name}" />
+                        <td th:text="${temp.software_type}" />
+                        <td th:text="${temp.date_of_order}" />
+                        <td th:text="${temp.due_date}" />
                         <td>Completed</td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
+                        <td><a href="#" th:href="@{'/client/remove?id='+${temp.software_id}+'&cid='+${theClient.client_id}}" class="btn btn-danger">Delete</a></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Software 2</td>
-                        <td>Software Type 2</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Software 3</td>
-                        <td>Software Type 3</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Software 4</td>
-                        <td>Software Type 4</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Software 5</td>
-                        <td>Software Type 5</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                        <td><a href="#" class="btn btn-danger delete-btn">Delete</a></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th scope="row">2</th>-->
+<!--                        <td>Software 2</td>-->
+<!--                        <td>Software Type 2</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>Completed</td>-->
+<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">3</th>-->
+<!--                        <td>Software 3</td>-->
+<!--                        <td>Software Type 3</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>Completed</td>-->
+<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">4</th>-->
+<!--                        <td>Software 4</td>-->
+<!--                        <td>Software Type 4</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>Completed</td>-->
+<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">5</th>-->
+<!--                        <td>Software 5</td>-->
+<!--                        <td>Software Type 5</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>2020-01-01</td>-->
+<!--                        <td>Completed</td>-->
+<!--                        <td><a href="#" class="btn btn-danger delete-btn">Delete</a></td>-->
+<!--                    </tr>-->
                 </tbody>
             </table>
         </div>

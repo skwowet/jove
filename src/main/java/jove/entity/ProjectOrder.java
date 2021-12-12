@@ -1,15 +1,17 @@
 package jove.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class ProjectOrder {
+public class ProjectOrder implements Serializable {
 
     @Id
     @GeneratedValue
-    private Integer software_id;
+    private int software_id;
 
     @Column(length=100)
     private String software_name;
@@ -25,6 +27,7 @@ public class ProjectOrder {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     @OneToMany(mappedBy = "projectOrder")
@@ -42,7 +45,7 @@ public class ProjectOrder {
         this.client = client;
     }
 
-    public Integer getSoftware_id() {
+    public int getSoftware_id() {
         return software_id;
     }
 
