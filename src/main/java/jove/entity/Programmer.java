@@ -1,6 +1,7 @@
 package jove.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -8,7 +9,7 @@ public class Programmer {
 
     @Id
     @GeneratedValue
-    private Long programmer_Id;
+    private int programmer_Id;
 
     @Column(nullable = false)
     private String programmer_name;
@@ -23,7 +24,7 @@ public class Programmer {
     private String specializations;
 
     @Column
-    private String date_of_joining;
+    private java.sql.Date date_of_joining;
 
     @ManyToOne
     @JoinColumn(name = "software_id")
@@ -33,7 +34,7 @@ public class Programmer {
     public Programmer() {
     }
 
-    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, String date_of_joining, Software software) {
+    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, java.sql.Date date_of_joining, Software software) {
         this.programmer_name = programmer_name;
         this.experience = experience;
         this.known_language = known_language;
@@ -42,12 +43,8 @@ public class Programmer {
         this.software = software;
     }
 
-    public Long getProgrammer_Id() {
+    public int getProgrammer_Id() {
         return programmer_Id;
-    }
-
-    public void setProgrammer_Id(Long programmer_Id) {
-        this.programmer_Id = programmer_Id;
     }
 
     public String getProgrammer_name() {
@@ -82,11 +79,11 @@ public class Programmer {
         this.specializations = specializations;
     }
 
-    public String getDate_of_joining() {
+    public java.sql.Date getDate_of_joining() {
         return date_of_joining;
     }
 
-    public void setDate_of_joining(String date_of_joining) {
+    public void setDate_of_joining(java.sql.Date date_of_joining) {
         this.date_of_joining = date_of_joining;
     }
 

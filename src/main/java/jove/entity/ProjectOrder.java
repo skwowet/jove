@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -20,10 +21,10 @@ public class ProjectOrder implements Serializable {
     private String software_type;
 
     @Column
-    private String date_of_order;
+    private java.sql.Date date_of_order;
 
     @Column
-    private String due_date;
+    private java.sql.Date due_date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
@@ -37,7 +38,7 @@ public class ProjectOrder implements Serializable {
     public ProjectOrder() {
     }
 
-    public ProjectOrder(String software_name, String software_type, String date_of_order, String due_date, Client client) {
+    public ProjectOrder(String software_name, String software_type, java.sql.Date date_of_order, java.sql.Date due_date, Client client) {
         this.software_name = software_name;
         this.software_type = software_type;
         this.date_of_order = date_of_order;
@@ -69,19 +70,19 @@ public class ProjectOrder implements Serializable {
         this.software_type = software_type;
     }
 
-    public String getDate_of_order() {
+    public java.sql.Date getDate_of_order() {
         return date_of_order;
     }
 
-    public void setDate_of_order(String date_of_order) {
+    public void setDate_of_order(java.sql.Date date_of_order) {
         this.date_of_order = date_of_order;
     }
 
-    public String getDue_date() {
+    public java.sql.Date getDue_date() {
         return due_date;
     }
 
-    public void setDue_date(String due_date) {
+    public void setDue_date(java.sql.Date due_date) {
         this.due_date = due_date;
     }
 
