@@ -21,10 +21,10 @@ public class Software {
     private String status;
 
     @Column
-    private java.sql.Date release_date;
+    private String release_date;
 
     @Column
-    private java.sql.Date commencement_date;
+    private String commencement_date;
 
     @OneToMany(mappedBy = "software", fetch = FetchType.LAZY, orphanRemoval = false)
     private List<ProjectLead> listProjectLeads;
@@ -35,7 +35,7 @@ public class Software {
     public Software() {
     }
 
-    public Software(String status, java.sql.Date release_date, java.sql.Date commencement_date, ProjectOrder projectOrder) {
+    public Software(String status, String release_date, String commencement_date, ProjectOrder projectOrder) {
         this.status = status;
         this.release_date = release_date;
         this.commencement_date = commencement_date;
@@ -54,19 +54,19 @@ public class Software {
         this.status = status;
     }
 
-    public java.sql.Date getRelease_date() {
+    public String getRelease_date() {
         return release_date;
     }
 
-    public void setRelease_date(java.sql.Date release_date) {
+    public void setRelease_date(String release_date) {
         this.release_date = release_date;
     }
 
-    public java.sql.Date getCommencement_date() {
+    public String getCommencement_date() {
         return commencement_date;
     }
 
-    public void setCommencement_date(java.sql.Date commencement_date) {
+    public void setCommencement_date(String commencement_date) {
         this.commencement_date = commencement_date;
     }
 
