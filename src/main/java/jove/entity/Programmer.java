@@ -24,6 +24,12 @@ public class Programmer {
     private String specializations;
 
     @Column
+    private String username;
+
+    @Column
+    private String password;
+
+    @Column
     private String date_of_joining;
 
     @ManyToOne
@@ -34,12 +40,14 @@ public class Programmer {
     public Programmer() {
     }
 
-    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, String date_of_joining, Software software) {
+    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, String date_of_joining, String username, String password, Software software) {
         this.programmer_name = programmer_name;
         this.experience = experience;
         this.known_language = known_language;
         this.specializations = specializations;
         this.date_of_joining = date_of_joining;
+        this.username = username;
+        this.password = password;
         this.software = software;
     }
 
@@ -87,6 +95,22 @@ public class Programmer {
         this.date_of_joining = date_of_joining;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Software getSoftware() {
         return software;
     }
@@ -103,6 +127,8 @@ public class Programmer {
                 ", experience=" + experience +
                 ", known_language='" + known_language + '\'' +
                 ", specializations='" + specializations + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", date_of_joining='" + date_of_joining + '\'' +
                 ", software=" + software +
                 '}';

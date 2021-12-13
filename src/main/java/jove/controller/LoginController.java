@@ -24,13 +24,6 @@ public class LoginController {
         return "index";
     }
 
-//    @GetMapping("")
-//    public String list(Model model){
-//        List<Client> clients = clientService.getAllClient();
-//        model.addAttribute("clients", clients);
-//        return "index";
-//    }
-
     @GetMapping("/add")
     public String add(Model model)
     {

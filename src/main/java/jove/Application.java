@@ -29,6 +29,9 @@ public class Application implements CommandLineRunner
 	@Autowired
 	private ProgrammerService programmerService;
 
+	@Autowired
+	private OwnerService ownerService;
+
 	@Override
 	public void run(String... args) throws Exception 
 	{
@@ -38,23 +41,27 @@ public class Application implements CommandLineRunner
 //		Course course = new Course("Chumma oru course");
 //		courseService.save(course);
 
-		Client client = new Client("Thara", "123456789", "thara133", "password");
+		Client client = new Client("Thara", "123456789", "thara133", "password", "23, james nagar, koramangala");
 		clientService.addClient(client);
 
-		ProjectOrder project = new ProjectOrder("SoftwareName", "General", "12-23-2302", "12-04-2020", client);
-		projectOrderService.addProject(project);
+		ProjectOrder project = new ProjectOrder("SoftwareName", "General", "2020-11-15", "2023-11-15", client);
+		projectOrderService.addProjectOrder(project);
 
 //		Create a software project
-		Software software = new Software("Hello", "23-09-2003", "30-02-2005", project);
+		Software software = new Software("Hello",  "2025-11-15",  "2024-11-15", project);
 		softwareService.addSoftware(software);
 
-		Programmer programmer = new Programmer("TharaDas", 5, "Java, Python", "Software dev", "12-23-2020", software);
+		Programmer programmer = new Programmer("TharaDas", 5, "Java, Python", "Software dev", "2017-11-15", "thara123", "password", software);
 		programmerService.addProgrammer(programmer);
 
-		ProjectLead projectLead = new ProjectLead("Kishore", 9, "Java, SpringBoot", "Web dev", "12-03-2009", software);
+		Programmer programmer2 = new Programmer("Second Programmer", 5, "Java, Python", "Software dev", "2017-11-15", "thara123", "password", software);
+		programmerService.addProgrammer(programmer2);
+
+		ProjectLead projectLead = new ProjectLead("Kishore", 9, "Java, SpringBoot", "Web dev", "2002-11-15","thara123", "password", software);
 		projectLeadService.addProjectLead(projectLead);
 
-
+		Owner owner = new Owner("Balaji", "balaji1234");
+		ownerService.addOwner(owner);
 
 	}
 

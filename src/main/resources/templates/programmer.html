@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -14,45 +14,45 @@
 
         <div>
             <h1>Programmer</h1>
-            <p>Name: Archana</p>
+            <p>Programmer Name:  <span th:text="${theProgrammer.programmer_name}" /> </p>
         </div>
 
         <hr class="bg-secondary" style="height: 5px;">
 
         <a href="#" class="btn btn-primary order-btn">View Projects</a>
         <a href="#" class="btn btn-primary profile-btn">Edit Profile</a>
-        <a href="logout.html" class="btn btn-warning logout-btn">Log out</a>
+        <a href="/logout" class="btn btn-warning logout-btn">Log out</a>
 
         <!-- Edit my profile -->
         <div class="profile-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
-            <form action="#" method="post">
+            <form action="#" th:action="@{'/programmer/update?id='+${id}}" th:object="${theProgrammer}" method="post">
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerID">Programmer ID</label>
-                    <input type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
+                    <input  th:field="*{programmer_Id}" type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerName">Programmer Name</label>
-                    <input type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
+                    <input  th:field="*{programmer_name}" type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerUsername">Username</label>
-                    <input type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
+                    <input th:field="*{username}" type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputAddress">Experiance</label>
-                    <input type="number" class="form-control" id="inputAddress" value="8" required>
+                    <input th:field="*{experience}" type="number" class="form-control" id="inputAddress" value="8" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Known Languages</label>
-                    <input type="text" class="form-control" id="inputPhone" value="JavaScript, C++" required>
+                    <input th:field="*{known_language}" type="text" class="form-control" id="inputPhone" value="JavaScript, C++" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="inputPhone">Specialisation</label>
-                    <input type="text" class="form-control" id="inputPhone" value="Web development" required>
+                    <label class="form-label" for="inputPhone">Specializations</label>
+                    <input th:field="*{specializations}" type="text" class="form-control" id="inputPhone" value="Web development" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Date of Joining</label>
-                    <input type="date" class="form-control" id="inputPhone" required>
+                    <input th:field="*{date_of_joining}" type="date" class="form-control" id="inputPhone" required>
                 </div>
                 <!-- close form -->
                 <button class="btn btn-danger profile-close">Close</button>
@@ -68,53 +68,54 @@
                         <th scope="col">Project ID</th>
                         <th scope="col">Software Name</th>
                         <th scope="col">Software Type</th>
-                        <th scope="col">Project Leader ID</th>
-                        <th scope="col">Date of Order</th>
-                        <th scope="col">Due Date</th>
+<!--                        <th scope="col">Project Leader ID</th>-->
+                        <th scope="col">Commencement Date</th>
+                        <th scope="col">Release Date</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="temp : ${softwares}">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Project 1</td>
-                        <td>Web Development</td>
-                        <td>1</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
+                        <td th:text="${temp.projectOrder.software_id}"/>
+                        <td th:text="${temp.projectOrder.software_name}"/>
+                        <td th:text="${temp.projectOrder.software_type}"/>
+                        <!-- TODO Add ProjectLeader ID -->
+                        <!-- <td>1</td> -->
+                        <td th:text="${temp.commencement_date}"/>
+                        <td th:text="${temp.release_date}"/>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Project 2</td>
-                        <td>Web Development</td>
-                        <td>2</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Project 3</td>
-                        <td>Web Development</td>
-                        <td>3</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Project 4</td>
-                        <td>Web Development</td>
-                        <td>4</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Project 5</td>
-                        <td>Web Development</td>
-                        <td>5</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019
-                        </td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th scope="row">2</th>-->
+<!--                        <td>Project 2</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>2</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">3</th>-->
+<!--                        <td>Project 3</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>3</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">4</th>-->
+<!--                        <td>Project 4</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>4</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">5</th>-->
+<!--                        <td>Project 5</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>5</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019-->
+<!--                        </td>-->
+<!--                    </tr>-->
                 </tbody>
             </table>
         </div>

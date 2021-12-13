@@ -8,7 +8,7 @@ public class Software {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
@@ -42,7 +42,7 @@ public class Software {
         this.projectOrder = projectOrder;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -78,14 +78,30 @@ public class Software {
         this.projectOrder = projectOrder;
     }
 
+    public List<ProjectLead> getListProjectLeads() {
+        return listProjectLeads;
+    }
+
+    public void setListProjectLeads(List<ProjectLead> listProjectLeads) {
+        this.listProjectLeads = listProjectLeads;
+    }
+
+    public List<Programmer> getListProgrammers() {
+        return listProgrammers;
+    }
+
+    public void setListProgrammers(List<Programmer> listProgrammers) {
+        this.listProgrammers = listProgrammers;
+    }
 
     @Override
     public String toString() {
         return "Software{" +
-                "projectOrder=" + projectOrder +
+                "id=" + id +
                 ", status='" + status + '\'' +
                 ", release_date='" + release_date + '\'' +
                 ", commencement_date='" + commencement_date + '\'' +
+                ", projectOrder=" + projectOrder +
                 '}';
     }
 }

@@ -21,8 +21,8 @@ public class SoftwareService {
     }
 
     @Transactional
-    public Optional<Software> getSoftware(int id) {
-        return softwareRepository.findById(id);
+    public Software getSoftwareById(int id) {
+        return softwareRepository.findById(id).isPresent() ? softwareRepository.findById(id).get() : null;
     }
 
     @Transactional
