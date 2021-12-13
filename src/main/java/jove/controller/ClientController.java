@@ -36,8 +36,10 @@ public class ClientController {
         ProjectOrder theProjectOrder = new ProjectOrder();
         model.addAttribute("theProjectOrder", theProjectOrder);
 
-        List<ProjectOrder> projectOrders = projectOrderService.getAllProjectOrder();
-        model.addAttribute("projectOrders", projectOrders);
+        if (theClient != null) {
+            List<ProjectOrder> clientListProjects = theClient.getListProjects();
+            model.addAttribute("clientListProjects", clientListProjects);
+        }
 
         return "client";
     }

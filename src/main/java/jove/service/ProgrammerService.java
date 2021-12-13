@@ -3,6 +3,7 @@ package jove.service;
 import java.util.List;
 import java.util.Optional;
 
+import jove.entity.Client;
 import jove.entity.Programmer;
 
 import jove.repository.ProgrammerRepository;
@@ -22,8 +23,8 @@ public class ProgrammerService {
     }
 
     @Transactional
-    public Optional<Programmer> getProgrammer(int id) {
-        return programmerRepository.findById(id);
+    public Programmer getProgrammerById(int id) {
+        return programmerRepository.findById(id).isPresent() ? programmerRepository.findById(id).get() : null;
     }
 
     @Transactional

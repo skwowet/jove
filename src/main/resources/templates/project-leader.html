@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -24,14 +24,14 @@
 
         <div>
             <h1>Project Leader</h1>
-            <p>Name: Suresh Kumar</p>
+            <p>Project Lead Name:  <span th:text="${theProjectLead.projectLead_name}" /> </p>
         </div>
 
         <hr class="bg-secondary" style="height: 5.5px;">
 
         <a href="#" class="btn btn-primary order-btn">View Projects</a>
         <a href="#" class="btn btn-primary profile-btn">Edit Profile</a>
-        <a href="logout.html" class="btn btn-warning logout-btn">Log out</a>
+        <a href="/logout" class="btn btn-warning logout-btn">Log out</a>
 
         <!-- View projects -->
         <div class="my-4 view-projects">
@@ -41,73 +41,71 @@
                         <th scope="col">Project ID</th>
                         <th scope="col">Software Name</th>
                         <th scope="col">Software Type</th>
-                        <th scope="col">Project Leader ID</th>
                         <th scope="col">Date of Order</th>
                         <th scope="col">Due Date</th>
-                        <th scope="col">Misc</th>
+                        <th scope="col">Programmers</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Project 1</td>
-                        <td>Web Development</td>
-                        <td>1</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
+                        <td th:text="${projectLeadSoftwares.projectOrder.software_id}"/>
+                        <td th:text="${projectLeadSoftwares.projectOrder.software_name}"/>
+                        <td th:text="${projectLeadSoftwares.projectOrder.software_type}"/>
+                        <td th:text="${projectLeadSoftwares.projectOrder.date_of_order}"/>
+                        <td th:text="${projectLeadSoftwares.projectOrder.due_date}"/>
                         <td><button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModalCenter">
-                                View Programmers
+                                View
                             </button></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Project 2</td>
-                        <td>Web Development</td>
-                        <td>2</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View Programmers
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Project 3</td>
-                        <td>Web Development</td>
-                        <td>3</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View Programmers
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Project 4</td>
-                        <td>Web Development</td>
-                        <td>4</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View Programmers
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Project 5</td>
-                        <td>Web Development</td>
-                        <td>5</td>
-                        <td>12/12/2019</td>
-                        <td>12/12/2019</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View Programmers
-                            </button></td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th scope="row">2</th>-->
+<!--                        <td>Project 2</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>2</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
+<!--                                data-target="#exampleModalCenter">-->
+<!--                                View-->
+<!--                            </button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">3</th>-->
+<!--                        <td>Project 3</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>3</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
+<!--                                data-target="#exampleModalCenter">-->
+<!--                                View-->
+<!--                            </button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">4</th>-->
+<!--                        <td>Project 4</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>4</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
+<!--                                data-target="#exampleModalCenter">-->
+<!--                                View-->
+<!--                            </button></td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">5</th>-->
+<!--                        <td>Project 5</td>-->
+<!--                        <td>Web Development</td>-->
+<!--                        <td>5</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td>12/12/2019</td>-->
+<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
+<!--                                data-target="#exampleModalCenter">-->
+<!--                                View-->
+<!--                            </button></td>-->
+<!--                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -132,33 +130,32 @@
                                     <th scope="col">Programmer Name</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody th:each="temp : ${programmers}" >
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Programmer 1</td>
+                                    <th th:text="${temp.programmer_Id}" />
+                                    <th th:text="${temp.programmer_name}" />
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Programmer 2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Programmer 3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Programmer 4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Programmer 5</td>
-                                </tr>
+<!--                                <tr>-->
+<!--                                    <th scope="row">2</th>-->
+<!--                                    <td>Programmer 2</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th scope="row">3</th>-->
+<!--                                    <td>Programmer 3</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th scope="row">4</th>-->
+<!--                                    <td>Programmer 4</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th scope="row">5</th>-->
+<!--                                    <td>Programmer 5</td>-->
+<!--                                </tr>-->
                             </tbody>
                         </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -167,34 +164,34 @@
 
         <!-- Edit my profile -->
         <div class="profile-form my-4 p-4  bg-dark" style="width: 650px; display: none; background-color: #212529 !important;">
-            <form action="#" method="post">
+            <form action="#"  th:action="@{'/projectlead/update?id='+${id}}" th:object="${theProjectLead}"  method="post">
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerID">Project Lead ID</label>
-                    <input type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
+                    <input th:field="*{projectLeadId}" type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerName">Project Lead Name</label>
-                    <input type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
+                    <input th:field="*{projectLead_name}" type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerUsername">Username</label>
-                    <input type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
+                    <input th:field="*{username}" type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputAddress">Experiance</label>
-                    <input type="number" class="form-control" id="inputAddress" value="8" required>
+                    <input th:field="*{experience}" type="number" class="form-control" id="inputAddress" value="8" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Known Languages</label>
-                    <input type="text" class="form-control" id="inputPhone" value="JavaScript, C++" required>
+                    <input th:field="*{known_language}" type="text" class="form-control" id="inputPhone" value="JavaScript, C++" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Specialisation</label>
-                    <input type="text" class="form-control" id="inputPhone" value="Web development" required>
+                    <input th:field="*{specializations}" type="text" class="form-control" id="inputPhone" value="Web development" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputPhone">Date of Joining</label>
-                    <input type="date" class="form-control" id="inputPhone" required>
+                    <input th:field="*{date_of_joining}" type="date" class="form-control" id="inputPhone" required>
                 </div>
                 <!-- close form -->
                 <button class="btn btn-danger profile-close">Close</button>

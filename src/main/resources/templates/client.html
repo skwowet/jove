@@ -22,17 +22,17 @@
         <hr class="bg-secondary" style="height: 5px;">
 
         <a href="#" class="btn btn-primary order-btn">New Order</a>
-        <a href="#" class="btn btn-primary profile-btn">My Profile</a>
+        <a href="#" class="btn btn-primary profile-btn">Edit Profile</a>
         <a href="logout.html" class="btn btn-warning logout-btn">Log out</a>
 
         <!-- Order form -->
         <div class="order-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
             <form action="#" th:action="@{'/client/save?id='+${id}}"  th:object="${theProjectOrder}" method="post">
-<!--                <div class="mb-3">-->
-<!--                    <label class="form-label" for="inputEmail">Project ID</label>-->
-<!--                    <input type="number" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"-->
-<!--                        disabled required>-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label class="form-label" for="inputEmail">Project ID</label>
+                    <input type="number" th:field="*{software_id}" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"
+                        disabled required>
+                </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Software Name</label>
@@ -105,7 +105,7 @@
                         <th scope="col">Cancel</th>
                     </tr>
                 </thead>
-                <tbody  th:each="temp : ${projectOrders}">
+                <tbody  th:each="temp : ${clientListProjects}">
                     <tr>
                         <td th:text="${temp.software_id}" />
                         <td th:text="${temp.software_name}" />
