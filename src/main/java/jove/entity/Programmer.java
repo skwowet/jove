@@ -24,7 +24,7 @@ public class Programmer {
     private String specializations;
 
     @Column
-    private java.sql.Date date_of_joining;
+    private String date_of_joining;
 
     @ManyToOne
     @JoinColumn(name = "software_id")
@@ -34,7 +34,7 @@ public class Programmer {
     public Programmer() {
     }
 
-    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, java.sql.Date date_of_joining, Software software) {
+    public Programmer(String programmer_name, Integer experience, String known_language, String specializations, String date_of_joining, Software software) {
         this.programmer_name = programmer_name;
         this.experience = experience;
         this.known_language = known_language;
@@ -79,11 +79,11 @@ public class Programmer {
         this.specializations = specializations;
     }
 
-    public java.sql.Date getDate_of_joining() {
+    public String getDate_of_joining() {
         return date_of_joining;
     }
 
-    public void setDate_of_joining(java.sql.Date date_of_joining) {
+    public void setDate_of_joining(String date_of_joining) {
         this.date_of_joining = date_of_joining;
     }
 
