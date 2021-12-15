@@ -107,11 +107,11 @@
                 </thead>
                 <tbody  th:each="temp : ${clientListProjects}">
                     <tr>
-                        <td th:text="${temp.software_id}" />
-                        <td th:text="${temp.software_name}" />
-                        <td th:text="${temp.software_type}" />
-                        <td th:text="${temp.date_of_order}" />
-                        <td th:text="${temp.due_date}" />
+                        <td th:text="${temp?.software_id}" />
+                        <td th:text="${temp?.software_name}" />
+                        <td th:text="${temp?.software_type}" />
+                        <td th:text="${temp?.date_of_order}" />
+                        <td th:text="${temp?.due_date}" />
                         <td>Completed</td>
                         <td><a href="#" th:href="@{'/client/remove?id='+${temp.software_id}+'&cid='+${theClient.client_id}}" class="btn btn-danger">Delete</a></td>
                     </tr>

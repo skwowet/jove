@@ -43,10 +43,25 @@ public class ProjectLeaderController {
         return "project-leader";
     }
 
+//    @PostMapping("/update")
+//    public String update(@ModelAttribute("theProjectLead") ProjectLead theProjectLead) {
+//        projectLeadService.updateProjectLead(theProjectLead);
+//        return "redirect:/projectleader/" + theProjectLead.getProjectLeadId();
+//    }
+
     @PostMapping("/update")
-    public String update(@ModelAttribute("theProjectLead") ProjectLead theProjectLead) {
-        projectLeadService.updateProjectLead(theProjectLead);
-        return "redirect:/projectleader/" + theProjectLead.getProjectLeadId();
+    public String update(@ModelAttribute("theProjectLead") ProjectLead theProjectLead, @RequestParam("id") int id) {
+        ProjectLead update = projectLeadService.getProjectLeadById(id);
+        if (update != null) {
+            update.setProjectLead_name(theProjectLead.getProjectLead_name());
+            update.setUsername(theProjectLead.getUsername());
+            update.setExperience(theProjectLead.getExperience());
+            update.setKnown_language(theProjectLead.getKnown_language());
+            update.setSpecializations(theProjectLead.getSpecializations());
+            update.setDate_of_joining(theProjectLead.getDate_of_joining());
+            projectLeadService.updateProjectLead(update);
+        }
+        return "redirect:/projectlead/" +id;
     }
 
 }

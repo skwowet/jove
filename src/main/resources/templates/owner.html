@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 
         <div>
             <h1>Owner</h1>
-            <p>Name: Sethulakshmi</p>
+            <p>Owner Name:  <span th:text="${theOwner.owner_name}" /> </p>
         </div>
 
         <hr class="bg-secondary" style="height: 5px;">
@@ -27,18 +27,18 @@
 
         <!-- Edit my profile -->
         <div class="profile-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
-            <form action="#" method="post">
+            <form action="#" th:action="@{'/owner/update?id='+${id}}" th:object="${theOwner}" method="post">
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerID">Owner ID</label>
-                    <input type="text" class="form-control" id="inputProgrammerID" value="23" disabled required>
+                    <input type="text" th:field="*{owner_id}" class="form-control" id="inputProgrammerID" value="23" disabled required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerName">Owner Name</label>
-                    <input type="text" class="form-control" id="inputProgrammerName" value="Suresh" required>
+                    <input type="text" th:field="*{owner_name}" class="form-control" id="inputProgrammerName" value="Suresh" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="inputProgrammerUsername">Username</label>
-                    <input type="text" class="form-control" id="inputClientUsername" value="suresh123" required>
+                    <input type="text" th:field="*{username}" class="form-control" id="inputClientUsername" value="suresh123" required>
                 </div>
                 <!-- close form -->
                 <button class="btn btn-danger profile-close">Close</button>
@@ -47,7 +47,30 @@
         </div>
 
         <!-- View members -->
-        <div class="my-4 view-members" style="width: 750px;">
+
+        <div class="my-4 view-members" style="width: fit-content;">
+            <h4>Clients:</h4>
+            <table class="table table-striped table-bordered table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">Client ID</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Address</th>
+                </tr>
+                </thead>
+                <tbody th:each="temp : ${clients}">
+                <tr>
+                    <td th:text="${temp?.client_id}" />
+                    <td th:text="${temp?.client_name}" />
+                    <td th:text="${temp?.phone_number}" />
+                    <td th:text="${temp?.username}" />
+                    <td th:text="${temp?.address}" />
+                </tr>
+                </tbody>
+            </table>
+
             <h4>Programmers:</h4>
             <table class="table table-striped table-bordered table-dark">
                 <thead>
@@ -61,33 +84,15 @@
                         <th scope="col">Date of Joining</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="temp : ${programmers}">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
+                        <td th:text="${temp.programmer_Id}" />
+                        <td th:text="${temp.programmer_name}" />
+                        <td th:text="${temp.username}" />
+                        <td th:text="${temp.experience}" />
+                        <td th:text="${temp.known_language}" />
+                        <td th:text="${temp.specializations}" />
+                        <td th:text="${temp.date_of_joining}" />
                     </tr>
                 </tbody>
             </table>
@@ -105,36 +110,20 @@
                         <th scope="col">Date of Joining</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="temp : ${projectLeads}" >
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Suresh</td>
-                        <td>suresh123</td>
-                        <td>8</td>
-                        <td>JavaScript, C++</td>
-                        <td>Web development</td>
-                        <td>12/12/2020</td>
+                        <td th:text="${temp.projectLeadId}" />
+                        <td th:text="${temp.projectLead_name}" />
+                        <td th:text="${temp.username}" />
+                        <td th:text="${temp.experience}" />
+                        <td th:text="${temp.known_language}" />
+                        <td th:text="${temp.specializations}" />
+                        <td th:text="${temp.date_of_joining}" />
                     </tr>
                 </tbody>
             </table>
+
+
         </div>
 
         <!-- View projects -->
@@ -151,46 +140,14 @@
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="temp : ${softwares}" >
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Software 1</td>
-                        <td>Software Type 1</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Software 2</td>
-                        <td>Software Type 2</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Software 3</td>
-                        <td>Software Type 3</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Software 4</td>
-                        <td>Software Type 4</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Software 5</td>
-                        <td>Software Type 5</td>
-                        <td>2020-01-01</td>
-                        <td>2020-01-01</td>
-                        <td>Completed</td>
+                        <td th:text="${temp.projectOrder.software_id}" />
+                        <td th:text="${temp.projectOrder.software_name}" />
+                        <td th:text="${temp.projectOrder.software_type}" />
+                        <td th:text="${temp.projectOrder.date_of_order}" />
+                        <td th:text="${temp.projectOrder.due_date}" />
+                        <td th:text="${temp.status}" />
                     </tr>
                 </tbody>
             </table>

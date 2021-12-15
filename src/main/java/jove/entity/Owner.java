@@ -9,20 +9,24 @@ import javax.persistence.Id;
 public class Owner {
     @Id
     @GeneratedValue
-    private Long owner_id;
+    private int owner_id;
 
     @Column(length=100)
     private String owner_name;
+
+    @Column
+    private String username;
 
 
     public Owner() {
     }
 
-    public Owner(String owner_name) {
+    public Owner(String owner_name, String username) {
         this.owner_name = owner_name;
+        this.username = username;
     }
 
-    public Long getOwner_id() {
+    public int getOwner_id() {
         return owner_id;
     }
 
@@ -34,9 +38,17 @@ public class Owner {
         this.owner_name = owner_name;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
-        return "Owner [owner_id=" + owner_id + ", owner_name=" + owner_name + "]";
+        return "Owner{" + "owner_id=" + owner_id + ", owner_name=" + owner_name + ", username=" + username + '}';
     }
 
 }

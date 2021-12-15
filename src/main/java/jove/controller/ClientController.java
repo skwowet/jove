@@ -53,10 +53,23 @@ public class ClientController {
         return "redirect:/client/" + id;
     }
 
+//    @PostMapping("/update")
+//    public String update(@ModelAttribute("theClient") Client theClient) {
+//        clientService.updateClient(theClient);
+//        return "redirect:/client/" + theClient.getClient_id();
+//    }
+
     @PostMapping("/update")
-    public String update(@ModelAttribute("theClient") Client theClient) {
-        clientService.updateClient(theClient);
-        return "redirect:/client/" + theClient.getClient_id();
+    public String update(@ModelAttribute("theClient") Client theClient, @RequestParam("id") int id) {
+        Client update = clientService.getClientById(id);
+        if (update != null) {
+            update.setClient_name(theClient.getClient_name());
+            update.setUsername(theClient.getUsername());
+            update.setAddress(theClient.getAddress());
+            update.setPhone_number(theClient.getPhone_number());
+            clientService.updateClient(update);
+        }
+        return "redirect:/client/" +id;
     }
 
     @GetMapping("/remove")

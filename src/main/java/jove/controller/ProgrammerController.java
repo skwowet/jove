@@ -44,10 +44,25 @@ public class ProgrammerController {
         return "programmer";
     }
 
+//    @PostMapping("/update")
+//    public String update(@ModelAttribute("theProgrammer") Programmer theProgrammer) {
+//        programmerService.updateProgrammer(theProgrammer);
+//        return "redirect:/programmer/" + theProgrammer.getProgrammer_Id();
+//    }
+
     @PostMapping("/update")
-    public String update(@ModelAttribute("theProgrammer") Programmer theProgrammer) {
-        programmerService.updateProgrammer(theProgrammer);
-        return "redirect:/programmer/" + theProgrammer.getProgrammer_Id();
+    public String update(@ModelAttribute("theProgrammer") Programmer theProgrammer, @RequestParam("id") int id) {
+        Programmer update = programmerService.getProgrammerById(id);
+        if (update != null) {
+            update.setProgrammer_name(theProgrammer.getProgrammer_name());
+            update.setUsername(theProgrammer.getUsername());
+            update.setExperience(theProgrammer.getExperience());
+            update.setKnown_language(theProgrammer.getKnown_language());
+            update.setSpecializations(theProgrammer.getSpecializations());
+            update.setDate_of_joining(theProgrammer.getDate_of_joining());
+            programmerService.updateProgrammer(update);
+        }
+        return "redirect:/programmer/" +id;
     }
 
 
