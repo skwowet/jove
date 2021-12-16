@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+services:
+    db:
+      container_name: jove_pgdb
+      image: postgres:13-alpine
+      restart: unless-stopped
+      ports:
+        - "5432"
+      environment:
+        POSTGRES_PASSWORD: example
+    jove:
+      image: carelessfinch/jove
+      build:
+        context: .
+      restart: unless-stopped
+      ports:
+        - "8080:8080"
+      links:
+        - "db:database"
