@@ -20,13 +20,6 @@ public class ClientController {
     @Autowired
     private ProjectOrderService projectOrderService;
 
-//    @GetMapping("")
-//    public String list(Model model){
-//        List<ProjectOrder> projectOrders = projectOrderService.getAllProjectOrder();
-//        model.addAttribute("projectOrders", projectOrders);
-//        return "index";
-//    }
-
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") int id, Model model) {
         Client theClient = clientService.getClientById(id);
@@ -48,16 +41,11 @@ public class ClientController {
     public String save(@ModelAttribute("theProjectOrder") ProjectOrder theProjectOrder, @RequestParam("id") int id) {
         Client client = clientService.getClientById(id);
         theProjectOrder.setClient(client);
+        theProjectOrder.setProject_status("ORDERED");
         projectOrderService.addProjectOrder(theProjectOrder);
         clientService.updateClient(client);
         return "redirect:/client/" + id;
     }
-
-//    @PostMapping("/update")
-//    public String update(@ModelAttribute("theClient") Client theClient) {
-//        clientService.updateClient(theClient);
-//        return "redirect:/client/" + theClient.getClient_id();
-//    }
 
     @PostMapping("/update")
     public String update(@ModelAttribute("theClient") Client theClient, @RequestParam("id") int id) {

@@ -1,6 +1,5 @@
 package jove.controller;
 
-import com.sun.xml.bind.v2.TODO;
 import jove.entity.*;
 import jove.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,16 +49,6 @@ public class OwnerController {
         return "owner";
     }
 
-////    TODO
-//    @PostMapping("/update")
-//    public String update(@ModelAttribute("theOwner") Owner theOwner, @RequestParam("id") int id) {
-//        Owner update = ownerService.getOwnerById(theOwner.getOwner_id());
-//        update.setOwner_name(theOwner.getOwner_name());
-//        update.setUsername(theOwner.getUsername());
-//        ownerService.updateOwner(update);
-//        return "redirect:/owner/" + id;
-//    }
-
     @PostMapping("/update")
     public String update(@ModelAttribute("theOwner") Owner theOwner, @RequestParam("id") int id) {
         Owner update = ownerService.getOwnerById(id);
@@ -68,6 +57,6 @@ public class OwnerController {
             update.setUsername(theOwner.getUsername());
             ownerService.updateOwner(update);
         }
-        return "redirect:/client/" +id;
+        return "redirect:/owner/" + id;
     }
 }

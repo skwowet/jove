@@ -1,11 +1,5 @@
-insert into student(id, name) values(10, 'Adi');
-insert into student(id, name) values(20, 'Ksh');
 
-insert into course(id, name) values(10, 'Java');
-insert into course(id, name) values(20, 'Python');
-
-insert into passport(id, number) values(10, '1234');
-insert into passport(id, number) values(20, '5678');
-
-insert into review(id, rating, description) values(10, '5', 'Best');
-insert into review(id, rating, description) values(20, '4', 'Good');
+INSERT INTO CLIENT(ID, NAME, ADDRESS, PHONE) VALUES(1, 'John', 'USA', '1234567890');
+INSERT INTO CLIENT(ID, NAME, ADDRESS, PHONE) VALUES(2, 'Mary', 'USA', '1234567890');
+INSERT INTO CLIENT(ID, NAME, ADDRESS, PHONE) VALUES(3, 'Peter', 'USA', '1234567890');
+INSERT INTO CLIENT(ID, NAME, ADDRESS, PHONE) VALUES(4, 'Paul', 'USA', '1234567890');

@@ -3,13 +3,13 @@ package jove.controller;
 import jove.entity.*;
 import jove.service.ProgrammerService;
 import jove.service.ProjectLeadService;
-import jove.service.ProjectOrderService;
 import jove.service.SoftwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,17 +38,26 @@ public class ProgrammerController {
         List<Software> softwares = softwareService.getAllSoftware();
         model.addAttribute("softwares", softwares);
 
+        List<ProjectLead> projectLeadsofProject= new ArrayList<>();
+        model.addAttribute("projectLeadsofProject", projectLeadsofProject);
+
+        for (Software software : softwares) {
+            List<Programmer> programmers = software.getListProgrammers();
+            List<ProjectLead> projectLeads = software.getListProjectLeads();
+            for (ProjectLead projectLead : projectLeads) {
+                for (Programmer programmer : programmers) {
+                    if (projectLead.getSoftware().getId() == programmer.getSoftware().getId()) {
+                        projectLeadsofProject.add(projectLead);
+                    }
+                }
+            }
+        }
+
         ProjectLead theProjectLead = projectLeadService.getProjectLeadById(id);
         model.addAttribute("theProjectLead", theProjectLead);
 
         return "programmer";
     }
-
-//    @PostMapping("/update")
-//    public String update(@ModelAttribute("theProgrammer") Programmer theProgrammer) {
-//        programmerService.updateProgrammer(theProgrammer);
-//        return "redirect:/programmer/" + theProgrammer.getProgrammer_Id();
-//    }
 
     @PostMapping("/update")
     public String update(@ModelAttribute("theProgrammer") Programmer theProgrammer, @RequestParam("id") int id) {

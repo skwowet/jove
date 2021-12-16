@@ -13,12 +13,3 @@ public class HomeController {
 
 }
 
-// @RestController
-// public class HomeController {
-
-//     GetMapping("/")
-// 	public String index() {
-// 		return "Greetings from Spring Boot!";
-// 	}
-
-// }

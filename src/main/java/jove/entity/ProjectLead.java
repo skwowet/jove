@@ -37,10 +37,6 @@ public class ProjectLead {
     @JoinColumn(name = "software_id")
     private Software software;
 
-//    @OneToMany(mappedBy = "projectLead", fetch = FetchType.LAZY, orphanRemoval = false)
-//    @JsonIgnore
-//    private List<Software> listProjects = new ArrayList<>();
-
 
     public ProjectLead() {
     }

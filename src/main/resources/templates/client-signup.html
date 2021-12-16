@@ -21,23 +21,23 @@
               method="POST">
             <div class="mb-3">
                 <label class="form-label" for="inputClientName">Client Name</label>
-                <input th:field="*{client_name}"  type="text" class="form-control" id="inputClientName" placeholder="Username" required>
+                <input th:field="*{client_name}"  type="text" class="form-control" id="inputClientName" placeholder="James" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputClientUsername">Username</label>
-                <input th:field="*{username}" type="text" class="form-control" id="inputClientUsername" placeholder="Username" required>
+                <input th:field="*{username}" type="text" class="form-control" id="inputClientUsername" placeholder="james123" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputClientPassword">Password</label>
-                <input th:field="*{password}" type="text" class="form-control" id="inputClientPassword" placeholder="Password" required>
+                <input th:field="*{password}" type="password" class="form-control" id="inputClientPassword" placeholder="password" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputAddress">Address</label>
-                <input th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="Username" required>
+                <input th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="10/11 James, NY" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="inputPhone">Phone</label>
-                <input th:field="*{phone_number}" type="text" class="form-control" id="inputPhone" placeholder="Username" required>
+                <input th:field="*{phone_number}" type="tel" class="form-control" id="inputPhone" placeholder="+91 923-234-2345" required>
             </div>
             <div class="mb-3">
                 <div class="form-check">
@@ -45,8 +45,8 @@
                     <label class="form-check-label" for="checkRemember">I agree to terms & conditions</label>
                 </div>
             </div>
-            <button type="button" class="btn btn-danger" onclick="location.href='./index.html'">Back</button>
-            <button type="submit" class="btn btn-primary" onclick="location.href='./index.html'">Register</button>
+            <button type="button" class="btn btn-danger" onclick="location.href='/login'">Back</button>
+            <button type="submit" class="btn btn-primary" onclick="location.href='/login'">Register</button>
         </form>
     </div>
 </div>

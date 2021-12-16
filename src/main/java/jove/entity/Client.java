@@ -17,7 +17,7 @@ public class Client {
     private String client_name;
 
     @Column
-    private String phone_number;
+    private Long phone_number;
 
     @Column
     private String username;
@@ -36,7 +36,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String client_name, String phone_number, String username, String password, String address) {
+    public Client(String client_name, Long phone_number, String username, String password, String address) {
         this.client_name = client_name;
         this.phone_number = phone_number;
         this.username = username;
@@ -56,11 +56,11 @@ public class Client {
         this.client_name = client_name;
     }
 
-    public String getPhone_number() {
+    public Long getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhone_number(Long phone_number) {
         this.phone_number = phone_number;
     }
 

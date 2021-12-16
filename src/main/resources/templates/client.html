@@ -23,16 +23,11 @@
 
         <a href="#" class="btn btn-primary order-btn">New Order</a>
         <a href="#" class="btn btn-primary profile-btn">Edit Profile</a>
-        <a href="logout.html" class="btn btn-warning logout-btn">Log out</a>
+        <a href="/logout" class="btn btn-warning logout-btn">Log out</a>
 
         <!-- Order form -->
         <div class="order-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
             <form action="#" th:action="@{'/client/save?id='+${id}}"  th:object="${theProjectOrder}" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="inputEmail">Project ID</label>
-                    <input type="number" th:field="*{software_id}" class="form-control" id="inputProjectID" placeholder="Project ID" value="34"
-                        disabled required>
-                </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Software Name</label>
@@ -41,7 +36,7 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="inputPassword">Software Type</label>
-                    <input type="text" th:field="*{software_type}" class="form-control" id="inputSoftwareType" placeholder="Software Type" required>
+                    <input type="text" th:field="*{software_type}" class="form-control" id="inputSoftwareType" placeholder="General, Financial, Medicine, Etc" required>
                 </div>
 
                 <div class="mb-3">
@@ -60,7 +55,6 @@
         </div>
 
         <!-- Create my profile -->
-<!--        th:href="@{'/client/remove?id='+${temp.software_id}+'&cid='+${theClient.client_id}}"-->
         <div class="profile-form my-4 p-4" style="width: 650px; display: none; background-color: rgb(33, 37, 41) !important;">
             <form action="#" th:action="@{'/client/update?id='+${id}}" th:object="${theClient}" method="post">
                 <div class="mb-3">
@@ -112,45 +106,9 @@
                         <td th:text="${temp?.software_type}" />
                         <td th:text="${temp?.date_of_order}" />
                         <td th:text="${temp?.due_date}" />
-                        <td>Completed</td>
+                        <td th:text="${temp?.project_status}" />
                         <td><a href="#" th:href="@{'/client/remove?id='+${temp.software_id}+'&cid='+${theClient.client_id}}" class="btn btn-danger">Delete</a></td>
                     </tr>
-<!--                    <tr>-->
-<!--                        <th scope="row">2</th>-->
-<!--                        <td>Software 2</td>-->
-<!--                        <td>Software Type 2</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>Completed</td>-->
-<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">3</th>-->
-<!--                        <td>Software 3</td>-->
-<!--                        <td>Software Type 3</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>Completed</td>-->
-<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">4</th>-->
-<!--                        <td>Software 4</td>-->
-<!--                        <td>Software Type 4</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>Completed</td>-->
-<!--                        <td><a href="#" class="btn btn-danger">Delete</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">5</th>-->
-<!--                        <td>Software 5</td>-->
-<!--                        <td>Software Type 5</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>2020-01-01</td>-->
-<!--                        <td>Completed</td>-->
-<!--                        <td><a href="#" class="btn btn-danger delete-btn">Delete</a></td>-->
-<!--                    </tr>-->
                 </tbody>
             </table>
         </div>
