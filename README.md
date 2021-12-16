@@ -23,17 +23,10 @@ $ ./mvnw spring-boot:run
 - Config [application.properties](src/main/resources/application.properties) file with pgadmin4 credentials
 - Run the pgadmin4 server
 
-## Lazy to connect with pgAdmin?
-If you are lazy like me to start postgres server & pgadmin manually each time, then you can connect to the postgres db using the docker, which makes the development ease.
+## Lazy to connect with pgAdmin and all?
 
-- [Install Docker engine](https://docs.docker.com/engine/install/) and run the docker engine 
+No issues! Run with docker-compose
 
-- Make sure your inside the [docker directory](docker/), and build the postgres docker image, by running the following command
-```bash
-$ docker compose build
-```
-
-- Start docker postgres service
 ```bash
 $ docker compose up -d
 ```
