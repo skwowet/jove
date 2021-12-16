@@ -68,60 +68,27 @@
                         <th scope="col">Project ID</th>
                         <th scope="col">Software Name</th>
                         <th scope="col">Software Type</th>
-<!--                        <th scope="col">Project Leader ID</th>-->
+                        <th scope="col">Project Lead ID</th>
                         <th scope="col">Commencement Date</th>
                         <th scope="col">Release Date</th>
                     </tr>
                 </thead>
-                <tbody th:each="temp : ${softwares}">
+                <tbody th:each="temp, pro : ${softwares}">
                     <tr>
-                        <td th:text="${temp.projectOrder.software_id}"/>
-                        <td th:text="${temp.projectOrder.software_name}"/>
-                        <td th:text="${temp.projectOrder.software_type}"/>
-                        <!-- TODO Add ProjectLeader ID -->
-                        <!-- <td>1</td> -->
-                        <td th:text="${temp.commencement_date}"/>
-                        <td th:text="${temp.release_date}"/>
+                        <td th:text="${temp?.projectOrder.software_id}"/>
+                        <td th:text="${temp?.projectOrder.software_name}"/>
+                        <td th:text="${temp?.projectOrder.software_type}"/>
+                        <td th:text="${projectLeadsofProject[__${pro.index}__].projectLeadId}"/>
+                        <td th:text="${temp?.commencement_date}"/>
+                        <td th:text="${temp?.release_date}"/>
                     </tr>
-<!--                    <tr>-->
-<!--                        <th scope="row">2</th>-->
-<!--                        <td>Project 2</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>2</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">3</th>-->
-<!--                        <td>Project 3</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>3</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">4</th>-->
-<!--                        <td>Project 4</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>4</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">5</th>-->
-<!--                        <td>Project 5</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>5</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019-->
-<!--                        </td>-->
-<!--                    </tr>-->
                 </tbody>
             </table>
         </div>
 
     </main>
     <script>
+
         // Hide form when cancel button is clicked in the client.html
         document.querySelector('.profile-close').addEventListener('click', function (e) {
             e.preventDefault();

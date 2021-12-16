@@ -43,6 +43,7 @@
                         <th scope="col">Software Type</th>
                         <th scope="col">Date of Order</th>
                         <th scope="col">Due Date</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Programmers</th>
                     </tr>
                 </thead>
@@ -53,59 +54,12 @@
                         <td th:text="${projectLeadSoftwares.projectOrder.software_type}"/>
                         <td th:text="${projectLeadSoftwares.projectOrder.date_of_order}"/>
                         <td th:text="${projectLeadSoftwares.projectOrder.due_date}"/>
+                        <td th:text="${projectLeadSoftwares.projectOrder.project_status}"/>
                         <td><button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 View
                             </button></td>
                     </tr>
-<!--                    <tr>-->
-<!--                        <th scope="row">2</th>-->
-<!--                        <td>Project 2</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>2</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                data-target="#exampleModalCenter">-->
-<!--                                View-->
-<!--                            </button></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">3</th>-->
-<!--                        <td>Project 3</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>3</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                data-target="#exampleModalCenter">-->
-<!--                                View-->
-<!--                            </button></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">4</th>-->
-<!--                        <td>Project 4</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>4</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                data-target="#exampleModalCenter">-->
-<!--                                View-->
-<!--                            </button></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th scope="row">5</th>-->
-<!--                        <td>Project 5</td>-->
-<!--                        <td>Web Development</td>-->
-<!--                        <td>5</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td>12/12/2019</td>-->
-<!--                        <td><button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                data-target="#exampleModalCenter">-->
-<!--                                View-->
-<!--                            </button></td>-->
-<!--                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -135,22 +89,6 @@
                                     <th th:text="${temp.programmer_Id}" />
                                     <th th:text="${temp.programmer_name}" />
                                 </tr>
-<!--                                <tr>-->
-<!--                                    <th scope="row">2</th>-->
-<!--                                    <td>Programmer 2</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <th scope="row">3</th>-->
-<!--                                    <td>Programmer 3</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <th scope="row">4</th>-->
-<!--                                    <td>Programmer 4</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <th scope="row">5</th>-->
-<!--                                    <td>Programmer 5</td>-->
-<!--                                </tr>-->
                             </tbody>
                         </table>
                     </div>

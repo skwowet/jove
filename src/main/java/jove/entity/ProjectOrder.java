@@ -20,6 +20,9 @@ public class ProjectOrder implements Serializable {
     @Column(length=100)
     private String software_type;
 
+    @Column(length=100)
+    private String project_status;
+
     @Column
     private String date_of_order;
 
@@ -38,9 +41,10 @@ public class ProjectOrder implements Serializable {
     public ProjectOrder() {
     }
 
-    public ProjectOrder(String software_name, String software_type, String date_of_order, String due_date, Client client) {
+    public ProjectOrder(String software_name, String software_type, String project_status, String date_of_order, String due_date, Client client) {
         this.software_name = software_name;
         this.software_type = software_type;
+        this.project_status = project_status;
         this.date_of_order = date_of_order;
         this.due_date = due_date;
         this.client = client;
@@ -70,6 +74,14 @@ public class ProjectOrder implements Serializable {
         this.software_type = software_type;
     }
 
+    public String getProject_status() {
+        return project_status;
+    }
+
+    public void setProject_status(String project_status) {
+        this.project_status = project_status;
+    }
+
     public String getDate_of_order() {
         return date_of_order;
     }
@@ -94,16 +106,17 @@ public class ProjectOrder implements Serializable {
         this.client = client;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "Project[" +
+        return "ProjectOrder{" +
                 "software_id=" + software_id +
                 ", software_name='" + software_name + '\'' +
                 ", software_type='" + software_type + '\'' +
+                ", project_status='" + project_status + '\'' +
                 ", date_of_order='" + date_of_order + '\'' +
                 ", due_date='" + due_date + '\'' +
                 ", client=" + client +
-                ']';
+                '}';
     }
 }
 

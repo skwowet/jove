@@ -3,7 +3,6 @@ package jove.controller;
 import jove.entity.*;
 import jove.service.ProgrammerService;
 import jove.service.ProjectLeadService;
-import jove.service.ProjectOrderService;
 import jove.service.SoftwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,11 +42,6 @@ public class ProjectLeaderController {
         return "project-leader";
     }
 
-//    @PostMapping("/update")
-//    public String update(@ModelAttribute("theProjectLead") ProjectLead theProjectLead) {
-//        projectLeadService.updateProjectLead(theProjectLead);
-//        return "redirect:/projectleader/" + theProjectLead.getProjectLeadId();
-//    }
 
     @PostMapping("/update")
     public String update(@ModelAttribute("theProjectLead") ProjectLead theProjectLead, @RequestParam("id") int id) {
