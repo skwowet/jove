@@ -47,7 +47,7 @@ public class Application implements CommandLineRunner
 		Client client3 = new Client("Jack Dane", 9894207234L, "jack123", "hellworld@123", "45, Central Street, New York, NY, USA");
 		clientService.addClient(client3);
 
-		Client client4 = new Client("Jill Jolly", 9894307234L, "jill123", "kidding@raj", "56, Park Street, New York, NY, USA");
+		Client client4 = new Client("Jill JollyD", 9894307234L, "jill123", "kidding@raj", "56, Park Street, New York, NY, USA");
 		clientService.addClient(client4);
 
 
