@@ -58,10 +58,11 @@ For further reference, please consider the following sections:
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.0/maven-plugin/reference/html/)
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.0/maven-plugin/reference/html/#build-image)
 
-##Authors
+## Authors
 - Yeganathan S
-- Gautham Vijay
+- Goutham Vijay
 - Sethulakshmi Santhosh
+- Prajwal C P
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
